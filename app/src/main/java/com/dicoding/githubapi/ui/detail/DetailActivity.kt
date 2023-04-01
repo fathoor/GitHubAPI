@@ -79,16 +79,18 @@ class DetailActivity : AppCompatActivity() {
 
     private fun hideUI(state: Boolean) {
         if (state) {
-            binding.tvError.visibility = View.VISIBLE
-            binding.ivAvatar.visibility = View.GONE
-            binding.tvFullName.visibility = View.GONE
-            binding.tvUsername.visibility = View.GONE
-            binding.tvFollowersWrapper.visibility = View.GONE
-            binding.tvFollowingWrapper.visibility = View.GONE
-            binding.tvFollowers.visibility = View.GONE
-            binding.tvFollowing.visibility = View.GONE
-            binding.tabs.visibility = View.GONE
-            binding.viewPager.visibility = View.GONE
+            binding.apply {
+                tvError.visibility = View.VISIBLE
+                ivAvatar.visibility = View.GONE
+                tvFullName.visibility = View.GONE
+                tvUsername.visibility = View.GONE
+                tvFollowersWrapper.visibility = View.GONE
+                tvFollowingWrapper.visibility = View.GONE
+                tvFollowers.visibility = View.GONE
+                tvFollowing.visibility = View.GONE
+                tabs.visibility = View.GONE
+                viewPager.visibility = View.GONE
+            }
         } else {
             binding.detailLayout.visibility = View.VISIBLE
         }
