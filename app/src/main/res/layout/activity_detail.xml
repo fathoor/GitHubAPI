@@ -5,9 +5,9 @@
     android:id="@+id/detailLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/github_onPrimary"
     android:orientation="vertical"
     android:fillViewport="true"
+    android:background="@color/github_onPrimary"
     tools:context=".ui.detail.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,8 +21,7 @@
             android:layout_marginTop="32dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:src="@color/white" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvFullName"
@@ -34,8 +33,7 @@
             android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@id/ivAvatar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Fathoor" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvUsername"
@@ -47,8 +45,7 @@
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvFullName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="\@fathoor" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvFollowersWrapper"
@@ -73,8 +70,7 @@
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvFollowersWrapper"
             app:layout_constraintStart_toStartOf="@id/tvFollowersWrapper"
-            app:layout_constraintEnd_toEndOf="@id/tvFollowersWrapper"
-            tools:text="20" />
+            app:layout_constraintEnd_toEndOf="@id/tvFollowersWrapper" />
 
         <TextView
             android:id="@+id/tvFollowingWrapper"
@@ -99,8 +95,7 @@
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvFollowingWrapper"
             app:layout_constraintStart_toStartOf="@id/tvFollowingWrapper"
-            app:layout_constraintEnd_toEndOf="@id/tvFollowingWrapper"
-            tools:text="20" />
+            app:layout_constraintEnd_toEndOf="@id/tvFollowingWrapper" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
@@ -134,8 +129,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:visibility="visible" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
             android:id="@+id/tvError"
@@ -150,8 +144,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:visibility="visible" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
