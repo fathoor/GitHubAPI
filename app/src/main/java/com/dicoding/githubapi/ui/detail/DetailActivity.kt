@@ -16,16 +16,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private val detailViewModel by viewModels<DetailViewModel>()
 
-    companion object {
-        const val EXTRA_USER = "extra_user"
-
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.follower,
-            R.string.following
-        )
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -102,5 +92,15 @@ class DetailActivity : AppCompatActivity() {
         } else {
             binding.detailLayout.visibility = View.VISIBLE
         }
+    }
+
+    companion object {
+        const val EXTRA_USER = "extra_user"
+
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.follower,
+            R.string.following
+        )
     }
 }

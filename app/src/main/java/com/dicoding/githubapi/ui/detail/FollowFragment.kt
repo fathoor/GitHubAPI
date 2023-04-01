@@ -17,13 +17,6 @@ class FollowFragment : Fragment() {
     private lateinit var binding: FragmentFollowBinding
     private val followViewModel by viewModels<FollowViewModel>()
 
-    companion object {
-        const val ARG_POSITION = "position"
-        const val ARG_USERNAME = "username"
-        var position: Int? = null
-        var username: String? = null
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -125,5 +118,12 @@ class FollowFragment : Fragment() {
 
     private fun showError(state: Boolean) {
         binding.tvError.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
+    companion object {
+        const val ARG_POSITION = "position"
+        const val ARG_USERNAME = "username"
+        var position: Int? = null
+        var username: String? = null
     }
 }
