@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GitHub API</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Username</string>
+    <string name="username">\@%s</string>
+    <string name="not_found">0 user found</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="error">Your token have reached the limit</string>
+</resources>
