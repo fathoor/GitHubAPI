@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/github_secondary"
-    tools:context=".ui.detail.FollowFragment">
+    android:background="@color/github_secondary">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -12,20 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tvError"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="@string/error"
         android:textColor="@color/github_light"
         android:fontFamily="@font/inter_semi_bold"
         android:textSize="20sp"
         android:gravity="center"
-        tools:visibility="visible" />
+        android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFollow"
