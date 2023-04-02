@@ -1,5 +1,6 @@
 package com.dicoding.githubapi.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.githubapi.api.ApiConfig
@@ -10,13 +11,13 @@ import retrofit2.Response
 
 class DetailViewModel: ViewModel() {
     private val _detail = MutableLiveData<DetailUserResponse>()
-    val detail: MutableLiveData<DetailUserResponse> = _detail
+    val detail: LiveData<DetailUserResponse> = _detail
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: MutableLiveData<Boolean> = _isLoading
+    val isLoading: LiveData<Boolean> = _isLoading
 
     private val _isError = MutableLiveData<Boolean>()
-    val isError: MutableLiveData<Boolean> = _isError
+    val isError: LiveData<Boolean> = _isError
 
     fun setDetailUser(detailUser: String) {
         _isLoading.value = true

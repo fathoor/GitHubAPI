@@ -1,5 +1,6 @@
 package com.dicoding.githubapi.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.githubapi.api.ApiConfig
@@ -10,16 +11,16 @@ import retrofit2.Response
 
 class FollowViewModel: ViewModel() {
     private val _listFollower = MutableLiveData<List<ItemsItem>>()
-    val listFollower: MutableLiveData<List<ItemsItem>> = _listFollower
+    val listFollower: LiveData<List<ItemsItem>> = _listFollower
 
     private val _listFollowing = MutableLiveData<List<ItemsItem>>()
-    val listFollowing: MutableLiveData<List<ItemsItem>> = _listFollowing
+    val listFollowing: LiveData<List<ItemsItem>> = _listFollowing
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: MutableLiveData<Boolean> = _isLoading
+    val isLoading: LiveData<Boolean> = _isLoading
 
     private val _isError = MutableLiveData<Boolean>()
-    val isError: MutableLiveData<Boolean> = _isError
+    val isError: LiveData<Boolean> = _isError
 
     fun getUserFollower(username: String) {
         _isLoading.value = true
