@@ -3,8 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/ic_baseline_person_search_24"
+        android:icon="@drawable/ic_person_search"
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_favorite_fill"
+        android:title="@string/favorite"
+        app:showAsAction="collapseActionView|always" />
+    <item
+        android:id="@+id/theme"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/theme"
+        app:showAsAction="collapseActionView|ifRoom" />
 </menu>

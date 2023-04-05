@@ -107,7 +107,7 @@
             app:tabIndicatorColor="@color/github_light_grey"
             app:tabRippleColor="@color/github_light_grey"
             app:tabSelectedTextColor="@color/github_light"
-            app:tabTextColor="@color/github_light_grey" />
+            app:tabTextColor="@color/github_light" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
@@ -143,6 +143,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/favorite"
+            android:src="@drawable/ic_favorite"
+            app:tint="@color/github_favorite"
+            app:borderWidth="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

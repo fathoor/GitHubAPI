@@ -7,13 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.githubapi.R
-import com.dicoding.githubapi.data.remote.response.ItemsItem
+import com.dicoding.githubapi.data.local.entity.FavoriteEntity
 
-class UserAdapter(private val listUser: List<ItemsItem>) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class FavoriteAdapter(private val listUser: List<FavoriteEntity>) : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
     private lateinit var onClickCallback: OnClickCallback
 
     interface OnClickCallback {
-        fun onClicked(data: ItemsItem)
+        fun onClicked(data: FavoriteEntity)
     }
 
     fun setOnClickCallback(onClickCallback: OnClickCallback) {
@@ -28,9 +28,9 @@ class UserAdapter(private val listUser: List<ItemsItem>) : RecyclerView.Adapter<
         ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_user, viewGroup, false))
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.tvItem.text = listUser[position].login
+        viewHolder.tvItem.text = listUser[position].username
         Glide.with(viewHolder.itemView.context)
-            .load(listUser[position].avatarUrl)
+            .load(listUser[position].avatar)
             .into(viewHolder.itemView.findViewById(R.id.ivAvatar))
 
         viewHolder.itemView.setOnClickListener { onClickCallback.onClicked(listUser[viewHolder.adapterPosition]) }

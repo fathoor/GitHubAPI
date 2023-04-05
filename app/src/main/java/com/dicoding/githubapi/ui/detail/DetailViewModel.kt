@@ -3,8 +3,8 @@ package com.dicoding.githubapi.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.githubapi.api.ApiConfig
-import com.dicoding.githubapi.model.DetailUserResponse
+import com.dicoding.githubapi.data.remote.retrofit.ApiConfig
+import com.dicoding.githubapi.data.remote.response.DetailUserResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

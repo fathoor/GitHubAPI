@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,12 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubapi.R
+import com.dicoding.githubapi.data.remote.response.ItemsItem
 import com.dicoding.githubapi.databinding.ActivityMainBinding
-import com.dicoding.githubapi.model.ItemsItem
 import com.dicoding.githubapi.ui.adapter.UserAdapter
 import com.dicoding.githubapi.ui.detail.DetailActivity
+import com.dicoding.githubapi.ui.favorite.FavoriteActivity
+import com.dicoding.githubapi.ui.setting.SettingActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -27,42 +30,34 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val layoutManager = LinearLayoutManager(this)
-        binding.rvUsers.layoutManager = layoutManager
-        val dividerItemDecoration = DividerItemDecoration(this, layoutManager.orientation)
-        binding.rvUsers.addItemDecoration(dividerItemDecoration)
+        binding.rvUsers.apply {
+            val layoutManager = LinearLayoutManager(this@MainActivity)
+            val dividerItemDecoration = DividerItemDecoration(this@MainActivity, layoutManager.orientation)
+            setLayoutManager(layoutManager)
+            addItemDecoration(dividerItemDecoration)
+        }
 
-        mainViewModel.items.observe(this) { items ->
-            if (items != null) {
-                getUser(items)
-            } else {
-                binding.rvUsers.visibility = View.GONE
-                binding.tvNoData.visibility = View.VISIBLE
+        mainViewModel.apply {
+            items.observe(this@MainActivity) { items ->
+                if (items != null) {
+                    getUser(items)
+                } else {
+                    binding.rvUsers.visibility = View.GONE
+                    binding.tvNoData.visibility = View.VISIBLE
+                }
             }
-        }
 
-        mainViewModel.isLoading.observe(this) {
-            showLoading(it)
-        }
+            isLoading.observe(this@MainActivity) {
+                showLoading(it)
+            }
 
-        mainViewModel.isError.observe(this) {
-            showError(it)
+            isError.observe(this@MainActivity) {
+                showError(it)
+            }
         }
     }
 
     private fun getUser(items: List<ItemsItem>) {
-        if (items.isNotEmpty()) {
-            showUser(items)
-
-            binding.rvUsers.visibility = View.VISIBLE
-            binding.tvNoData.visibility = View.GONE
-        } else {
-            binding.rvUsers.visibility = View.GONE
-            binding.tvNoData.visibility = View.VISIBLE
-        }
-    }
-
-    private fun showUser(items: List<ItemsItem>) {
         val userAdapter = UserAdapter(items)
         binding.rvUsers.adapter = userAdapter
 
@@ -76,6 +71,7 @@ class MainActivity : AppCompatActivity() {
     private fun showSelectedUser(data: ItemsItem) {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_USER, data.login)
+        intent.putExtra(DetailActivity.EXTRA_AVATAR, data.avatarUrl)
         startActivity(intent)
     }
 
@@ -101,6 +97,22 @@ class MainActivity : AppCompatActivity() {
         })
 
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.favorite -> {
+                val favoriteIntent = Intent(this, FavoriteActivity::class.java)
+                startActivity(favoriteIntent)
+                true
+            }
+            R.id.theme -> {
+                val settingIntent = Intent(this, SettingActivity::class.java)
+                startActivity(settingIntent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun showLoading(state: Boolean) {

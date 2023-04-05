@@ -1,4 +1,4 @@
-package com.dicoding.githubapi.api
+package com.dicoding.githubapi.data.remote.retrofit
 
 import com.dicoding.githubapi.BuildConfig
 import okhttp3.Interceptor

@@ -7,4 +7,6 @@
     <string name="follower">Follower</string>
     <string name="following">Following</string>
     <string name="error">Your token have reached the limit</string>
+    <string name="favorite">Favorite</string>
+    <string name="theme">Switch Theme</string>
 </resources>
