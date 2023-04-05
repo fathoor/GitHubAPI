@@ -31,31 +31,35 @@ class FollowFragment : Fragment() {
         position = arguments?.getInt(ARG_POSITION, 0)
         username = arguments?.getString(ARG_USERNAME)
 
-        val layoutManager = LinearLayoutManager(requireActivity())
-        binding.rvFollow.layoutManager = layoutManager
-        val dividerItemDecoration = DividerItemDecoration(binding.rvFollow.context, layoutManager.orientation)
-        binding.rvFollow.addItemDecoration(dividerItemDecoration)
+        binding.apply {
+            val layoutManager = LinearLayoutManager(requireActivity())
+            val dividerItemDecoration = DividerItemDecoration(binding.rvFollow.context, layoutManager.orientation)
+            binding.rvFollow.layoutManager = layoutManager
+            binding.rvFollow.addItemDecoration(dividerItemDecoration)
+        }
 
         getUserFollow(username, position)
 
-        followViewModel.listFollower.observe(viewLifecycleOwner) { listFollower ->
-            if (listFollower != null) {
-                showListFollower(listFollower)
+        followViewModel.apply {
+            listFollower.observe(viewLifecycleOwner) { listFollower ->
+                if (listFollower != null) {
+                    showListFollower(listFollower)
+                }
             }
-        }
 
-        followViewModel.listFollowing.observe(viewLifecycleOwner) { listFollowing ->
-            if (listFollowing != null) {
-                showListFollowing(listFollowing)
+            listFollowing.observe(viewLifecycleOwner) { listFollowing ->
+                if (listFollowing != null) {
+                    showListFollowing(listFollowing)
+                }
             }
-        }
 
-        followViewModel.isLoading.observe(viewLifecycleOwner) {
-            showLoading(it)
-        }
+            isLoading.observe(viewLifecycleOwner) {
+                showLoading(it)
+            }
 
-        followViewModel.isError.observe(viewLifecycleOwner) {
-            showError(it)
+            isError.observe(viewLifecycleOwner) {
+                showError(it)
+            }
         }
     }
 
@@ -109,6 +113,7 @@ class FollowFragment : Fragment() {
     private fun showSelectedUser(data: ItemsItem) {
         val intent = Intent(activity, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_USER, data.login)
+        intent.putExtra(DetailActivity.EXTRA_AVATAR, data.avatarUrl)
         startActivity(intent)
     }
 

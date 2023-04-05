@@ -15,7 +15,7 @@ import com.dicoding.githubapi.ui.detail.DetailActivity
 
 class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteBinding
-    private val favoriteViewModel by viewModels<FavoriteViewModel>() {
+    private val favoriteViewModel by viewModels<FavoriteViewModel> {
         FavoriteViewModelFactory.getInstance(application)
     }
 
