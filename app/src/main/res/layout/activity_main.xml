@@ -4,7 +4,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/github_onPrimary">
+    android:background="?colorOnPrimary">
 
     <TextView
         android:id="@+id/tvError"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="@string/error"
-        android:textColor="@color/github_light"
+        android:textColor="?colorSecondary"
         android:fontFamily="@font/inter_semi_bold"
         android:textSize="20sp"
         android:gravity="center"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="@string/not_found"
-        android:textColor="@color/github_light"
+        android:textColor="?colorSecondary"
         android:fontFamily="@font/inter_semi_bold"
         android:textSize="20sp"
         android:gravity="center"

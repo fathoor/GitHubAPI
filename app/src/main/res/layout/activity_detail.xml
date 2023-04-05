@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fillViewport="true"
-    android:background="@color/github_onPrimary">
+    android:background="?colorOnPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/inter_semi_bold"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@id/ivAvatar"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvFullName"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
             android:layout_marginStart="70dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvUsername"
             app:layout_constraintStart_toStartOf="parent" />
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvFollowersWrapper"
             app:layout_constraintStart_toStartOf="@id/tvFollowersWrapper"
@@ -78,7 +78,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="70dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvUsername"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/tvFollowingWrapper"
             app:layout_constraintStart_toStartOf="@id/tvFollowingWrapper"
@@ -100,14 +100,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/github_onPrimary"
+            android:background="?colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFollowers"
-            app:tabIndicatorColor="@color/github_light_grey"
-            app:tabRippleColor="@color/github_light_grey"
-            app:tabSelectedTextColor="@color/github_light"
-            app:tabTextColor="@color/github_light" />
+            app:tabIndicatorColor="?colorSecondaryVariant"
+            app:tabRippleColor="?colorSecondaryVariant"
+            app:tabSelectedTextColor="?colorSecondary"
+            app:tabTextColor="?colorSecondary" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:text="@string/error"
-            android:textColor="@color/github_light"
+            android:textColor="?colorSecondary"
             android:fontFamily="@font/inter_semi_bold"
             android:textSize="20sp"
             android:layout_gravity="center"
