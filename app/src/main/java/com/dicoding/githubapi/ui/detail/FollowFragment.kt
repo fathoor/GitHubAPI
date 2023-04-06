@@ -2,7 +2,6 @@ package com.dicoding.githubapi.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.style.TtsSpan.ARG_USERNAME
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
