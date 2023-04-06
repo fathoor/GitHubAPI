@@ -65,11 +65,11 @@ class DetailActivity : AppCompatActivity() {
             binding.fabFavorite.setOnClickListener {
                 isFavorite = if (isFavorite) {
                     favoriteViewModel.deleteUser(favoriteUser)
-                    Toast.makeText(this@DetailActivity, R.string.removed, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DetailActivity, getString(R.string.removed, username), Toast.LENGTH_SHORT).show()
                     false
                 } else {
                     favoriteViewModel.insertUser(favoriteUser)
-                    Toast.makeText(this@DetailActivity, R.string.added, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DetailActivity, getString(R.string.added, username), Toast.LENGTH_SHORT).show()
                     true
                 }
             }
