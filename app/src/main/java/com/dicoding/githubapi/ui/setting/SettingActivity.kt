@@ -2,6 +2,7 @@ package com.dicoding.githubapi.ui.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.githubapi.R
@@ -36,6 +37,11 @@ class SettingActivity : AppCompatActivity() {
 
             binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
                 saveThemeSetting(isChecked)
+                if (isChecked) {
+                    Toast.makeText(this@SettingActivity, R.string.dark, Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@SettingActivity, R.string.light, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

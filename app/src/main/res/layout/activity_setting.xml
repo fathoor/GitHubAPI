@@ -5,6 +5,26 @@
     android:layout_height="match_parent"
     android:background="?colorOnPrimary">
 
+    <ImageView
+        android:id="@+id/ivLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_light"
+        app:layout_constraintEnd_toStartOf="@+id/switchTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_dark"
+        app:layout_constraintStart_toEndOf="@+id/switchTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switchTheme"
         android:layout_width="wrap_content"
