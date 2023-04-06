@@ -17,6 +17,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+private const val DELAY: Long = 2000
+
 class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +27,7 @@ class Splash : AppCompatActivity() {
         supportActionBar?.hide()
 
         lifecycleScope.launch {
-            delay(2000)
+            delay(DELAY)
             withContext(Dispatchers.Main) {
                 val intent = Intent(this@Splash, MainActivity::class.java)
                 startActivity(intent)
