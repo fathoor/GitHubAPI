@@ -4,10 +4,10 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/github_primary</item>
         <item name="colorPrimaryVariant">@color/github_secondary</item>
-        <item name="colorOnPrimary">@color/github_light</item>
+        <item name="colorOnPrimary">@color/github_onPrimary</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/github_onPrimary</item>
-        <item name="colorSecondaryVariant">@color/github_primary</item>
+        <item name="colorSecondary">@color/github_light</item>
+        <item name="colorSecondaryVariant">@color/github_light_grey</item>
         <item name="colorOnSecondary">@color/github_secondary</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
