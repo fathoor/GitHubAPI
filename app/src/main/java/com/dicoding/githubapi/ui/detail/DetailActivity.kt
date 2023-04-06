@@ -2,6 +2,7 @@ package com.dicoding.githubapi.ui.detail
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
@@ -64,9 +65,11 @@ class DetailActivity : AppCompatActivity() {
             binding.fabFavorite.setOnClickListener {
                 isFavorite = if (isFavorite) {
                     favoriteViewModel.deleteUser(favoriteUser)
+                    Toast.makeText(this@DetailActivity, R.string.removed, Toast.LENGTH_SHORT).show()
                     false
                 } else {
                     favoriteViewModel.insertUser(favoriteUser)
+                    Toast.makeText(this@DetailActivity, R.string.added, Toast.LENGTH_SHORT).show()
                     true
                 }
             }
@@ -93,10 +96,12 @@ class DetailActivity : AppCompatActivity() {
         Glide.with(this)
             .load(detail.avatarUrl)
             .into(binding.ivAvatar)
-        binding.tvFullName.text = detail.name
-        binding.tvUsername.text = this.resources.getString(R.string.username, detail.login)
-        binding.tvFollowers.text = detail.followers.toString()
-        binding.tvFollowing.text = detail.following.toString()
+        binding.apply {
+            tvFullName.text = detail.name
+            tvUsername.text = this@DetailActivity.resources.getString(R.string.username, detail.login)
+            tvFollowers.text = detail.followers.toString()
+            tvFollowing.text = detail.following.toString()
+        }
     }
 
     private fun showLoading(state: Boolean) {
