@@ -7,7 +7,6 @@ import com.dicoding.githubapi.data.repository.FavoriteRepository
 import com.dicoding.githubapi.di.Injection
 
 class FavoriteViewModelFactory private constructor(private val favoriteRepository: FavoriteRepository) : ViewModelProvider.NewInstanceFactory() {
-    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
             return FavoriteViewModel(favoriteRepository) as T

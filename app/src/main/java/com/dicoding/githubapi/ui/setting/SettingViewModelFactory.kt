@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.githubapi.data.local.preference.SettingPreferences
 
 class SettingViewModelFactory(private val pref: SettingPreferences) : ViewModelProvider.NewInstanceFactory() {
-    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SettingViewModel::class.java)) {
             return SettingViewModel(pref) as T
