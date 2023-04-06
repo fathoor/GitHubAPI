@@ -2,6 +2,7 @@ package com.dicoding.githubapi.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.style.TtsSpan.ARG_USERNAME
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,11 +32,11 @@ class FollowFragment : Fragment() {
         position = arguments?.getInt(ARG_POSITION, 0)
         username = arguments?.getString(ARG_USERNAME)
 
-        binding.apply {
+        binding.rvFollow.apply {
             val layoutManager = LinearLayoutManager(requireActivity())
-            val dividerItemDecoration = DividerItemDecoration(binding.rvFollow.context, layoutManager.orientation)
-            binding.rvFollow.layoutManager = layoutManager
-            binding.rvFollow.addItemDecoration(dividerItemDecoration)
+            val dividerItemDecoration = DividerItemDecoration(context, layoutManager.orientation)
+            setLayoutManager(layoutManager)
+            addItemDecoration(dividerItemDecoration)
         }
 
         getUserFollow(username, position)
@@ -83,11 +84,9 @@ class FollowFragment : Fragment() {
                 }
             })
 
-            binding.rvFollow.visibility = View.VISIBLE
-            binding.tvError.visibility = View.GONE
+            hideUI(true)
         } else {
-            binding.rvFollow.visibility = View.GONE
-            binding.tvError.visibility = View.VISIBLE
+            hideUI(false)
         }
     }
 
@@ -102,11 +101,9 @@ class FollowFragment : Fragment() {
                 }
             })
 
-            binding.rvFollow.visibility = View.VISIBLE
-            binding.tvError.visibility = View.GONE
+            hideUI(true)
         } else {
-            binding.rvFollow.visibility = View.GONE
-            binding.tvError.visibility = View.VISIBLE
+            hideUI(false)
         }
     }
 
@@ -123,6 +120,17 @@ class FollowFragment : Fragment() {
 
     private fun showError(state: Boolean) {
         binding.tvError.visibility = if (state) View.VISIBLE else View.GONE
+    }
+    private fun hideUI(state: Boolean) {
+        binding.apply {
+            if (state) {
+                rvFollow.visibility = View.VISIBLE
+                tvError.visibility = View.GONE
+            } else {
+                rvFollow.visibility = View.GONE
+                tvError.visibility = View.VISIBLE
+            }
+        }
     }
 
     companion object {

@@ -38,8 +38,10 @@ class FavoriteActivity : AppCompatActivity() {
             if (favorite.isNotEmpty()) {
                 showFavoriteList(favorite)
             } else {
-                binding.rvFavorite.visibility = View.GONE
-                binding.tvNoData.visibility = View.VISIBLE
+                binding.apply {
+                    rvFavorite.visibility = View.GONE
+                    tvNoData.visibility = View.VISIBLE
+                }
             }
         }
     }
@@ -57,8 +59,10 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun showSelectedUser(data: FavoriteEntity) {
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(DetailActivity.EXTRA_USER, data.username)
-        intent.putExtra(DetailActivity.EXTRA_AVATAR, data.avatar)
+        intent.apply {
+            putExtra(DetailActivity.EXTRA_USER, data.username)
+            putExtra(DetailActivity.EXTRA_AVATAR, data.avatar)
+        }
         startActivity(intent)
     }
 }

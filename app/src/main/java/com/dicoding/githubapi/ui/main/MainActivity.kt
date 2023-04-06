@@ -42,8 +42,10 @@ class MainActivity : AppCompatActivity() {
                 if (items != null) {
                     getUser(items)
                 } else {
-                    binding.rvUsers.visibility = View.GONE
-                    binding.tvNoData.visibility = View.VISIBLE
+                    binding.apply {
+                        rvUsers.visibility = View.GONE
+                        tvNoData.visibility = View.VISIBLE
+                    }
                 }
             }
 
@@ -70,8 +72,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSelectedUser(data: ItemsItem) {
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(DetailActivity.EXTRA_USER, data.login)
-        intent.putExtra(DetailActivity.EXTRA_AVATAR, data.avatarUrl)
+        intent.apply {
+            putExtra(DetailActivity.EXTRA_USER, data.login)
+            putExtra(DetailActivity.EXTRA_AVATAR, data.avatarUrl)
+        }
         startActivity(intent)
     }
 
@@ -81,21 +85,22 @@ class MainActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search).actionView as SearchView
 
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = resources.getString(R.string.search_hint)
+        searchView.apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            queryHint = resources.getString(R.string.search_hint)
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                mainViewModel.findUser(query)
-                searchView.clearFocus()
-                return true
-            }
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    mainViewModel.findUser(query)
+                    searchView.clearFocus()
+                    return true
+                }
 
-            override fun onQueryTextChange(newText: String): Boolean {
-                return false
-            }
-        })
-
+                override fun onQueryTextChange(newText: String): Boolean {
+                    return false
+                }
+            })
+        }
         return true
     }
 
@@ -125,8 +130,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideUI(state: Boolean) {
         if (state) {
-            binding.tvError.visibility = View.VISIBLE
-            binding.rvUsers.visibility = View.GONE
+            binding.apply {
+                tvError.visibility = View.VISIBLE
+                rvUsers.visibility = View.GONE
+            }
         } else {
             binding.mainLayout.visibility = View.VISIBLE
         }
