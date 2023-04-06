@@ -9,4 +9,6 @@
     <string name="error">Your token have reached the limit</string>
     <string name="favorite">Favorite</string>
     <string name="theme">Switch Theme</string>
+    <string name="removed">Removed from favorite</string>
+    <string name="added">Added to favorite</string>
 </resources>
